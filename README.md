@@ -1,4 +1,5 @@
-#docker-phpfpm
+docker-phpfpm
+=============
 
 php and fpm running in lightweight container. This is an extremely lean image
 designed for extending.
