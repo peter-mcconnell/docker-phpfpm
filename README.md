@@ -4,6 +4,10 @@ docker-phpfpm
 php and fpm running in lightweight container. This is an extremely lean image
 designed for extending.
 
+The contents and commands below are somewhat generalised and refer to the 
+contents within each of the subdirectories - each of these subdirectories 
+refer to the relevant version of PHP.
+
 usage
 -----
 
@@ -16,6 +20,8 @@ FROM pemcconnell/docker-phpfpm:7.1-alpine
 
 make
 ----
+
+This repo is designed for supporting more php versions in future. These will manifest as directories on the top level directory. Currently there is only a single version of PHP supported, 7.1, which can be found in the `./php7.1` directory. The Makefile assumes you want to use this folder when calling `make` commands - you can override this by setting `PHPFOLDER=php5.4` when calling the `make` commands.
 
 The following convenience commands are available:
 
@@ -63,5 +69,10 @@ volume at the WORDIR (`/app`) and running `php7 index.php`.
 fpm
 ===
 
-You can find the fpm configuration in `./php7/fpm.conf`. This is configured to
+You can find the fpm configuration in `./${PHPFOLDER}/php7/fpm.conf`. This is configured to
 run on port 9000 by default.
+
+php
+===
+
+You can find the fpm configuration in `./${PHPFOLDER}/php7/php.ini`.
