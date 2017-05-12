@@ -1,5 +1,4 @@
-docker-phpfpm
-=============
+#docker-phpfpm
 
 php and fpm running in lightweight container. This is an extremely lean image
 designed for extending.
@@ -11,17 +10,28 @@ refer to the relevant version of PHP.
 usage
 -----
 
-To make use of the image defined in this repo, you can pull it from the 
-docker hub using the following image:
+To make use of the image defined in this repo, you can pull it from docker hub
+using the following image, and add any packages you need, e.g:
 
 ```Dockerfile
 FROM pemcconnell/docker-phpfpm:7.1-alpine
+
+RUN apk add --update \
+      php-json \
+      php-zlib \
+      php-xml \
+      php-phar
 ```
 
 make
 ----
 
-This repo is designed for supporting more php versions in future. These will manifest as directories on the top level directory. Currently there is only a single version of PHP supported, 7.1, which can be found in the `./php7.1` directory. The Makefile assumes you want to use this folder when calling `make` commands - you can override this by setting `PHPFOLDER=php5.4` when calling the `make` commands.
+This repo is designed for supporting more php versions in future. These will 
+manifest as directories on the top level directory. Currently there is only a 
+single version of PHP supported, 7.1, which can be found in the `./php7.1` 
+directory. The Makefile assumes you want to use this folder when calling `make`
+commands - you can override this by setting `PHPFOLDER=php5.4` when calling the
+`make` commands.
 
 The following convenience commands are available:
 
