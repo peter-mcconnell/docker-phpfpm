@@ -64,15 +64,15 @@ test run
 
 As a very simple example, a convenience method is supplied that runs the file 
 located in `./app/index.php` against the container, by mounting `./app` as a 
-volume at the WORDIR (`/app`) and running `php7 index.php`.
+volume at the WORDIR (`/app`) and running `php index.php`.
 
 fpm
 ===
 
-You can find the fpm configuration in `./${PHPFOLDER}/php7/fpm.conf`. This is configured to
+You can find the fpm configuration in `./${PHPFOLDER}/php/fpm.conf`. This is configured to
 run on port 9000 by default.
 
 php
 ===
 
-You can find the fpm configuration in `./${PHPFOLDER}/php7/php.ini`.
+You can find the fpm configuration in `./${PHPFOLDER}/php/php.ini`.
