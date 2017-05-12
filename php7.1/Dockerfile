@@ -11,8 +11,8 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
     addgroup www-data && \
     adduser www-data www-data
 
-COPY php7/php.ini /etc/php7/conf.d/php-fpm.conf
-COPY php7/fpm.conf /etc/php7/php-fpm.conf
+COPY php/php.ini /etc/php7/conf.d/php-fpm.conf
+COPY php/fpm.conf /etc/php7/php-fpm.conf
 
 RUN mkdir /app
 WORKDIR /app

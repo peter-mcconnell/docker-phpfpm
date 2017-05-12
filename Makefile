@@ -1,10 +1,7 @@
 .PHONY: help deploy build test-run
 
-IMAGE?="pemcconnell/docker-phpfpm"
-
-ifndef TAG
-	TAG_EXISTS = $(error TAG is undefined)
-endif
+PHPFOLDER?=php7.1
+IMAGE?=pemcconnell/docker-phpfpm
 
 help: ## shows all available targets
 	@echo ""
@@ -21,7 +18,7 @@ build: ## build and tag our image.
 	  echo "TAG not set, or blank"; \
 	  exit 1; \
 	fi;
-	docker build -t ${IMAGE}:${TAG} .
+	cd ${PHPFOLDER}; docker build -t ${IMAGE}:${TAG} .
 
 test-run: build ## an example of this container running against a phpinfo() file
 	docker run -p 9000:9000 -v $(CURDIR)/app:/app -ti ${IMAGE}:${TAG} php7 index.php
